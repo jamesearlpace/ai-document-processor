@@ -145,8 +145,8 @@ param functionAppHostPlan string
 @allowed(['B1', 'B2', 'S1', 'S2', 'S3', 'P1v2', 'P2v2', 'P3v2', 'FC1'])
 param functionAppSKU string = (functionAppHostPlan == 'FlexConsumption') ? 'FC1' : 'S2'
 
-var openaiApiVersion = '2025-08-07'
-var openaiModel = 'gpt-5-mini'
+var openaiApiVersion = '2024-08-01-preview'
+var openaiModel = 'gpt-4o'
 var functionRuntime = 'python'
 
 var hostingPlanName = '${abbrs.compute.appServicePlan}${suffix}'
@@ -359,7 +359,7 @@ var appSettings = [
   }
   {
     name: 'OPENAI_MODEL'
-    value: 'gpt-5-mini'
+    value: 'gpt-4o'
   }
   {
     name: 'AIMULTISERVICES_ENDPOINT'
@@ -637,11 +637,11 @@ module aiFoundry 'br/public:avm/ptn/ai-ml/ai-foundry:0.6.0' = {
     // Model deployments - using correct AVM schema
     aiModelDeployments: [
       {
-        name: 'gpt-5-mini'
+        name: 'gpt-4o'
         model: {
           format: 'OpenAI'
-          name: 'gpt-5-mini'
-          version: '2025-09-07'
+          name: 'gpt-4o'
+          version: '2024-08-06'
         }
         sku: {
           name: 'GlobalStandard'
